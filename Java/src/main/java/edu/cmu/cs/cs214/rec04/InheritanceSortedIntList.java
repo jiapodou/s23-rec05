@@ -9,5 +9,28 @@ package edu.cmu.cs.cs214.rec04;
  * @author Nora Shoemaker
  *
  */
-public class InheritanceSortedIntList {
+public class InheritanceSortedIntList extends SortedIntList{
+  private int totalAdded;
+
+  public InheritanceSortedIntList() {
+    totalAdded = 0;
+  }
+
+  @Override
+  public boolean add(int num) {
+    totalAdded += 1;
+    return super.add(num);
+  }
+
+  @Override
+  public boolean addAll(IntegerList list) {
+    // totalAdded += list.size(); 
+    // need to know its super class, super.addAll calls a loop which has this.add,
+    // we will add totalAdd twice
+    return super.addAll(list);
+  }
+  
+  public int getTotalAdded() {
+    return totalAdded;
+  }
 }

@@ -12,6 +12,50 @@ package edu.cmu.cs.cs214.rec04;
 
 // HINT: Take a look at the UML diagram to see what DelegationSortedIntList
 //       should implement.
-public class DelegationSortedIntList {
+public class DelegationSortedIntList implements IntegerList{
+
+  private SortedIntList sortedIntList;
+  private int totalAdd;
+
+  public int getTotalAdded() {
+    return totalAdd;
+  }
+
+  public DelegationSortedIntList() {
+    sortedIntList = new SortedIntList();
+    totalAdd = 0;
+  }
+
+  @Override
+  public boolean add(int num) {
+    totalAdd += 1;
+    return sortedIntList.add(num);
+  }
+
+  @Override
+  public boolean addAll(IntegerList list) {
+    totalAdd += list.size();
+    return sortedIntList.addAll(list);
+  }
+
+  @Override
+  public int get(int index) {
+    return sortedIntList.get(index);
+  }
+
+  @Override
+  public boolean remove(int num) {
+    return sortedIntList.remove(num);
+  }
+
+  @Override
+  public boolean removeAll(IntegerList list) {
+    return sortedIntList.removeAll(list);
+  }
+
+  @Override
+  public int size() {
+    return sortedIntList.size();
+  }
 
 }

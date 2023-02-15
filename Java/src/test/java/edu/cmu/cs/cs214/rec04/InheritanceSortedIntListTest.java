@@ -12,9 +12,23 @@ import org.junit.Test;
  */
 public class InheritanceSortedIntListTest {
 
-       //Write you tests below
+    //Write you tests below
+    InheritanceSortedIntList list1;
+    InheritanceSortedIntList list2;
 
+    @Before
+    public void setUp() {
+        list1 = new InheritanceSortedIntList();
+        list2 = new InheritanceSortedIntList();
+    }
 
+    @Test
+    public void stestAdd() {
+        list1.add(1);
+        list1.add(2);
+        list1.remove(1);
+        assertEquals(2, list1.getTotalAdded());
+    }
 
     /**
      * A helper function that prints out the contents of an IntegerList.
